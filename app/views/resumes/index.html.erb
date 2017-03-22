@@ -1,35 +1,111 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2>Contacts</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href=" <%= home_index_path %>">Home</a>
+        </li>
+        <li class="active">
+            <strong>Candidatos</strong>
+        </li>
+    </ol>
+</div>
+        </div>
+<div class="wrapper wrapper-content animated fadeInRight">
+<div class="row">
+  <% @resumes.each do |resume| %>
+    <div class="col-lg-4">
+      <div class="contact-box">
+          <a href=" <%= resume_path(resume) %>">
+              <div class="col-sm-4">
+                  <div class="text-center">
+                      <%= image_tag(resume.avatar_url(:web,:icono), class: "img-circle m-t-xs img-responsive") if resume.avatar? %>
+                      <div class="m-t-xs font-bold">Graphics designer</div>
+                  </div>
+              </div>
+              <div class="col-sm-8">
+                  <h3><strong><%= resume.nombre %> <%= resume.apellido %></strong></h3>
+                  <p><i class="fa fa-map-marker"></i> <%= resume.direccion %></p>
+                  <address>
+                      <strong>Cedula</strong><br>
+                      <%= resume.cedula %><br>
+                      San Francisco, CA 94107<br>
+                      <abbr title="Phone">P:</abbr> (123) 456-7890
+                  </address>
+
+              </div>
+              <div class="clearfix"></div>
+          </a>
+      </div>
+    </div>
+
+  <% end %>
+
+
+
+
+
+
+
+        </div>
+        </div>
+
+<% content_for :javascript do %>
+
+<script type="text/javascript">
+
+$(function () {
+
+    $('.contact-box').each(function () {
+        animationHover(this, 'pulse');
+    });
+
+});
+
+</script>
+
+<% end %>
+
+
+
+
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Resumes</h1>
+<!-- <h1>Candidatos</h1>
 
-<table>
+
+
+
+<table class="table table-striped">
   <thead>
     <tr>
+      <th>Imagen</th>
       <th>Cedula</th>
       <th>Nombre</th>
       <th>Apellido</th>
       <th>Direccion</th>
       <th>Email</th>
-      <th colspan="3"></th>
+      <th colspan="3">Acciones</th>
     </tr>
   </thead>
 
   <tbody>
     <% @resumes.each do |resume| %>
       <tr>
+        <td>   <%= image_tag(resume.avatar_url(:web,:icono), class: "img-circle icon-list") if resume.avatar? %></td>
         <td><%= resume.cedula %></td>
         <td><%= resume.nombre %></td>
         <td><%= resume.apellido %></td>
         <td><%= resume.direccion %></td>
         <td><%= resume.email %></td>
-        <td><%= link_to 'Show', resume %></td>
-        <td><%= link_to 'Edit', edit_resume_path(resume) %></td>
-        <td><%= link_to 'Destroy', resume, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', resume %></td>
+        <td><%= link_to 'Editar', edit_resume_path(resume) %></td>
+        <td><%= link_to 'Destruir', resume, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<br> -->
 
-<%= link_to 'New Resume', new_resume_path %>
+<%= link_to 'Nuevo candidato', new_resume_path %>
