@@ -3,8 +3,8 @@ class HomeController < ApplicationController
     render layout: false
   end
   def index
-    @mainTitle = "Welcome in Inspinia Rails Seed Project"
-    @mainDesc = "It is an application skeleton for a typical Ruby on Rails web app. You can use it to quickly bootstrap your webapp projects and dev/prod environment."
+    @mainTitle = "Bienvenidos al administrador de hojas de vida"
+    @mainDesc = "Esta aplicación te permite postularte para obtener un empleo en alguna de nustras categorias."
   end
 
   def minor

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cedula:</strong>
+  <%= @resume.cedula %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @resume.nombre %>
+</p>
+
+<p>
+  <strong>Apellido:</strong>
+  <%= @resume.apellido %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @resume.direccion %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @resume.email %>
+</p>
+
+<%= link_to 'Edit', edit_resume_path(@resume) %> |
+<%= link_to 'Back', resumes_path %>
