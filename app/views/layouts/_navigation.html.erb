@@ -23,8 +23,8 @@
                 <i class="fa fa-laptop"></i> <span class="nav-label">Dashboard</span>
                 <% end %>
             </li>
-            <li class="<%= 'active' if current_page?('/home/minor') %>">
-                <%= link_to "/home/minor" do %>
+            <li class="<%= 'active' if current_page?(resumes_path) %>">
+                <%= link_to resumes_path do %>
                 <i class="fa fa-desktop"></i> <span class="nav-label">Candidatos</span>
                 <% end %>
             </li>
