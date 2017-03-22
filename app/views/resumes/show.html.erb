@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <%= image_tag(@resume.avatar_url(:web,:thumb)) if @resume.avatar? %>
+
+</p>
+
+<p>
   <strong>Cedula:</strong>
   <%= @resume.cedula %>
 </p>

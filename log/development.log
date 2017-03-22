@@ -10865,3 +10865,220 @@ Processing by ResumesController#index as HTML
   Rendered layouts/_topnavbar.html.erb (0.1ms)
   Rendered layouts/_footer.html.erb (0.1ms)
 Completed 200 OK in 86ms (Views: 85.3ms | ActiveRecord: 0.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddAvatarToResumes (20170322210700)
+  [1m[35m (21.6ms)[0m  BEGIN
+  [1m[36m (228.6ms)[0m  [1mALTER TABLE "resumes" ADD "avatar" character varying[0m
+  [1m[35mSQL (51.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20170322210700"]]
+  [1m[36m (785.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (6.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'resumes'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started GET "/resumes" for ::1 at 2017-03-22 16:18:10 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ResumesController#index as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+NameError (uninitialized constant Resume::AvatarUploader):
+  app/models/resume.rb:2:in `<class:Resume>'
+  app/models/resume.rb:1:in `<top (required)>'
+  app/controllers/resumes_controller.rb:7:in `index'
+
+
+  Rendered /Users/hguzman/.rvm/gems/ruby-2.1.3@rails402/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /Users/hguzman/.rvm/gems/ruby-2.1.3@rails402/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /Users/hguzman/.rvm/gems/ruby-2.1.3@rails402/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/hguzman/.rvm/gems/ruby-2.1.3@rails402/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.2ms)
+
+
+Started GET "/resumes" for ::1 at 2017-03-22 16:18:25 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ResumesController#index as HTML
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms)
+
+LoadError (cannot load such file -- mini_magick (You may need to install the mini_magick gem)):
+  app/uploaders/avatar_uploader.rb:4:in `include'
+  app/uploaders/avatar_uploader.rb:4:in `<class:AvatarUploader>'
+  app/uploaders/avatar_uploader.rb:1:in `<top (required)>'
+  app/models/resume.rb:2:in `<class:Resume>'
+  app/models/resume.rb:1:in `<top (required)>'
+  app/controllers/resumes_controller.rb:7:in `index'
+
+
+  Rendered /Users/hguzman/.rvm/gems/ruby-2.1.3@rails402/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.3ms)
+  Rendered /Users/hguzman/.rvm/gems/ruby-2.1.3@rails402/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/hguzman/.rvm/gems/ruby-2.1.3@rails402/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/hguzman/.rvm/gems/ruby-2.1.3@rails402/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (27.5ms)
+
+
+Started GET "/resumes" for ::1 at 2017-03-22 16:20:52 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ResumesController#index as HTML
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms)
+
+NameError (uninitialized constant CarrierWave::MimeTypes):
+  app/uploaders/avatar_uploader.rb:5:in `<class:AvatarUploader>'
+  app/uploaders/avatar_uploader.rb:1:in `<top (required)>'
+  app/models/resume.rb:2:in `<class:Resume>'
+  app/models/resume.rb:1:in `<top (required)>'
+  app/controllers/resumes_controller.rb:7:in `index'
+
+
+  Rendered /Users/hguzman/.rvm/gems/ruby-2.1.3@rails402/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.2ms)
+  Rendered /Users/hguzman/.rvm/gems/ruby-2.1.3@rails402/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/hguzman/.rvm/gems/ruby-2.1.3@rails402/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/hguzman/.rvm/gems/ruby-2.1.3@rails402/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (25.7ms)
+
+
+Started GET "/resumes" for ::1 at 2017-03-22 16:22:26 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ResumesController#index as HTML
+DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
+
+You can opt into the new behavior and remove this warning by setting:
+
+  config.active_record.raise_in_transactional_callbacks = true
+
+ (called from <class:Resume> at /Users/hguzman/Desarrollo/5.Rails/1.Desarrollos/jes/app/models/resume.rb:2)
+DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
+
+You can opt into the new behavior and remove this warning by setting:
+
+  config.active_record.raise_in_transactional_callbacks = true
+
+ (called from <class:Resume> at /Users/hguzman/Desarrollo/5.Rails/1.Desarrollos/jes/app/models/resume.rb:2)
+DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
+
+You can opt into the new behavior and remove this warning by setting:
+
+  config.active_record.raise_in_transactional_callbacks = true
+
+ (called from <class:Resume> at /Users/hguzman/Desarrollo/5.Rails/1.Desarrollos/jes/app/models/resume.rb:2)
+  [1m[35mResume Load (0.7ms)[0m  SELECT "resumes".* FROM "resumes"
+  Rendered resumes/index.html.erb within layouts/application (16.4ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_topnavbar.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 706ms (Views: 683.6ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/resumes/1/edit" for ::1 at 2017-03-22 16:22:31 -0500
+Processing by ResumesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mResume Load (79.5ms)[0m  [1mSELECT  "resumes".* FROM "resumes" WHERE "resumes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered resumes/_form.html.erb (159.6ms)
+  Rendered resumes/edit.html.erb within layouts/application (161.7ms)
+  Rendered layouts/_navigation.html.erb (0.3ms)
+  Rendered layouts/_topnavbar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 349ms (Views: 234.7ms | ActiveRecord: 79.8ms)
+
+
+Started PATCH "/resumes/1" for ::1 at 2017-03-22 16:22:54 -0500
+Processing by ResumesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sM4r6vcHHT1JT0AnB3s1bp175msBH3Q9pTHBXDUtWogEigOxxAHVP8piXH2iWgh/lC2QDRHzD3Jj3Odud32Dzg==", "resume"=>{"avatar"=>#<ActionDispatch::Http::UploadedFile:0x007fe5f6346b90 @tempfile=#<Tempfile:/var/folders/kk/13hb4gfx4vx3f2yf_f2n5jsc0000gn/T/RackMultipart20170322-2562-x6m93n.jpg>, @original_filename="camisa.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"resume[avatar]\"; filename=\"camisa.jpg\"\r\nContent-Type: image/jpeg\r\n">, "avatar_cache"=>"", "cedula"=>"72230311", "nombre"=>"HENRY", "apellido"=>"GUZMAN", "direccion"=>"CALLE 35 # 27 -145", "email"=>"hguzman10@gmail.com"}, "commit"=>"Update Resume", "id"=>"1"}
+  [1m[35mResume Load (0.5ms)[0m  SELECT  "resumes".* FROM "resumes" WHERE "resumes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (10.9ms)[0m  UPDATE "resumes" SET "avatar" = $1, "updated_at" = $2 WHERE "resumes"."id" = $3  [["avatar", "camisa.jpg"], ["updated_at", "2017-03-22 21:22:56.433128"], ["id", 1]]
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/resumes/1
+Completed 302 Found in 1493ms (ActiveRecord: 13.6ms)
+
+
+Started GET "/resumes/1" for ::1 at 2017-03-22 16:22:56 -0500
+Processing by ResumesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mResume Load (0.4ms)[0m  SELECT  "resumes".* FROM "resumes" WHERE "resumes"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered resumes/show.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+  Rendered layouts/_topnavbar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 127ms (Views: 124.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/resumes/1" for ::1 at 2017-03-22 16:24:40 -0500
+Processing by ResumesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mResume Load (0.4ms)[0m  [1mSELECT  "resumes".* FROM "resumes" WHERE "resumes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered resumes/show.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+  Rendered layouts/_topnavbar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 83ms (Views: 81.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/resumes/1" for ::1 at 2017-03-22 16:25:04 -0500
+Processing by ResumesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mResume Load (0.4ms)[0m  SELECT  "resumes".* FROM "resumes" WHERE "resumes"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered resumes/show.html.erb within layouts/application (3.8ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (no implicit conversion of Symbol into Integer):
+    1: <p id="notice"><%= notice %></p>
+    2: 
+    3: <p>
+    4:   <%= image_tag(@resume.avatar_url[:web,:thumb]) if @resume.avatar? %>
+    5: </p>
+    6: 
+    7: <p>
+  app/views/resumes/show.html.erb:4:in `[]'
+  app/views/resumes/show.html.erb:4:in `_app_views_resumes_show_html_erb___4470787422537727396_70312877233500'
+
+
+  Rendered /Users/hguzman/.rvm/gems/ruby-2.1.3@rails402/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.0ms)
+  Rendered /Users/hguzman/.rvm/gems/ruby-2.1.3@rails402/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendered /Users/hguzman/.rvm/gems/ruby-2.1.3@rails402/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/hguzman/.rvm/gems/ruby-2.1.3@rails402/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (28.1ms)
+
+
+Started GET "/resumes/1" for ::1 at 2017-03-22 16:27:23 -0500
+Processing by ResumesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mResume Load (0.4ms)[0m  [1mSELECT  "resumes".* FROM "resumes" WHERE "resumes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered resumes/show.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.4ms)
+
+SyntaxError (/Users/hguzman/Desarrollo/5.Rails/1.Desarrollos/jes/app/views/resumes/show.html.erb:4: syntax error, unexpected modifier_if, expecting ')'
+...sume.avatar_url(:web,:thumb) if @resume.avatar? );@output_bu...
+...                               ^):
+  app/views/resumes/show.html.erb:4: syntax error, unexpected modifier_if, expecting ')'
+
+
+  Rendered /Users/hguzman/.rvm/gems/ruby-2.1.3@rails402/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.3ms)
+  Rendered /Users/hguzman/.rvm/gems/ruby-2.1.3@rails402/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/hguzman/.rvm/gems/ruby-2.1.3@rails402/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/hguzman/.rvm/gems/ruby-2.1.3@rails402/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.2ms)
+
+
+Started GET "/resumes/1" for ::1 at 2017-03-22 16:28:55 -0500
+Processing by ResumesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mResume Load (0.3ms)[0m  SELECT  "resumes".* FROM "resumes" WHERE "resumes"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered resumes/show.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_navigation.html.erb (0.4ms)
+  Rendered layouts/_topnavbar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 100ms (Views: 98.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/resumes" for ::1 at 2017-03-22 16:29:13 -0500
+Processing by ResumesController#index as HTML
+  [1m[36mResume Load (0.4ms)[0m  [1mSELECT "resumes".* FROM "resumes"[0m
+  Rendered resumes/index.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_navigation.html.erb (0.4ms)
+  Rendered layouts/_topnavbar.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 74ms (Views: 72.8ms | ActiveRecord: 0.4ms)
